@@ -1,0 +1,27 @@
+.weather-container{
+    top: 0;
+    right: 0;
+    display: flex;
+    padding: 2vw;
+    margin-top: 10px; 
+}
+
+.weather{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 0.4em;
+}
+
+.weather h1{
+    font-size: 1em;
+    font-weight: 500;
+}
+.weather h2{
+    font-size: 1em;
+    font-weight: 400;    
+}
+
+.weather img{
+    max-width: 15%;
+}

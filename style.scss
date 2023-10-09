@@ -1,0 +1,332 @@
+@use 'sass/fontimports';
+@use 'sass/fieldinputstyle';
+@use 'sass/cssreset';
+@use 'sass/weather';
+
+$mobile-icon-size: 1.3rem;
+
+header
+{
+    
+    display: flex;
+    justify-content: space-between;
+    padding: 0.7em;
+}
+
+body
+{
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 35% 23%;
+  overflow: hidden;
+  font-family: "DM Sans", sans-serif;
+  color:white;
+  font-size: clamp(1.3rem, 1em, 6rem);
+  text-shadow: 0 1px 5px rgba(0,0,0,.1);
+}
+
+main{ 
+    min-height: 100vh;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+}
+
+//backgrounds
+.morningbg{
+    background-image: url('assets/morningbg.jpg');
+}
+
+.afternoonbg{
+    background-image: url('assets/afternoonbg.jpg');
+}
+
+.eveningbg{
+    background-image: url('assets/eveningbg.jpg');
+
+}
+
+
+//USER INPUT CONTAINER
+.user-input-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1em;
+}
+
+.user-input
+{
+    border: 0;
+    outline: 0;
+    font-size: 1em;
+    color: white;
+    background: transparent;
+    animation: fadeIn 2s;
+
+    &::placeholder {
+        color: aliceblue;
+        opacity: 0.5;
+      }
+
+}
+
+.entered-name{
+    color: white;
+    animation: fadeIn 1s;
+    min-width: 50vw;
+    overflow-x: hidden;
+}
+
+
+// USER ICON CSS
+.fa-solid
+{
+    color: white;
+    display: block;
+    font-size: 1.3em;
+    letter-spacing: 10px;
+}
+
+//CLOCK & GREETING
+.clock
+{
+    width: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clock span
+{
+    font-family: 'Neue Haas Grotesk Display Pro';
+    font-weight: 600;
+    font-size: 13rem;
+    display: inline-block;
+    text-align: center;
+    color:white;
+}
+
+
+.greeting-container span
+{
+    font-family: 'Neue Haas Grotesk Display Pro';
+    font-weight: 700;
+    color:white;
+    font-size: 4em;
+    animation: fadeIn 1s;
+    min-width: 50vw;
+    overflow:hidden;
+}
+
+//QUOTE
+.quote
+{
+    font: inherit;
+    font-size: 1.4rem;
+    cursor: text;
+}
+
+.quote-input
+{
+    @include fieldinputstyle;
+    cursor: pointer;
+    width: 20em;
+}
+
+.quote-section
+{
+    animation: fadeIn 2s;
+}
+
+//FOCUS
+
+.focus h1
+{
+    font-family: 'Neue Haas Grotesk Display Pro';
+    font-weight: 700;
+    font-size: 1rem;
+    color: white;
+}
+
+.focus-input
+{
+    @include fieldinputstyle;
+    cursor: pointer;
+    width: 20em;
+    padding-top: 1em;
+
+    &::placeholder {
+        color: aliceblue;
+        opacity: 0.5;
+      }
+
+}
+
+.focus-output
+{
+    padding-top: 1em;
+    display: none;
+    animation: fadeIn 1s;
+}
+
+//edit icon css
+.fa-pen-to-square
+{
+    font-size: 1em;
+    padding-left: 1em;
+}
+
+
+//TODO TITLE
+.todo-text{
+    font-weight: 600;
+    font-size: 2vh;
+    color: white;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 2em;
+}
+
+.todo-text:hover{
+    animation: fadeIn 1s;
+    cursor: pointer;
+}
+
+//TODO
+.todo-modal
+{
+    background-color: #ECA124;
+    text-align: left;
+    height: auto;
+    word-wrap: break-word;
+    border: white;
+    border-radius: 10px;
+    position: absolute;
+    right: 2vw;
+    bottom: 10vh;
+    padding: 2em;
+    display: none;
+    animation: fadeIn 1s;
+    max-height: 55vh;
+    max-width: 75vw;
+    overflow: auto;
+    z-index: 99;
+    /* Hide the scrollbar by default */
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+}
+
+.todo-li{
+    color:white;
+    font-weight: 500;
+    padding: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+
+    span{
+        flex:2;    
+        word-break: break-word;  
+    }
+}
+
+//TODO INPUT
+.todo-input{
+    @include fieldinputstyle;
+    padding-bottom: 0.5em;
+    cursor: pointer;
+    margin-left: 0;
+    font-size: 1em;
+}
+
+.checktodo{
+    text-decoration: line-through;
+}
+
+//MEDIA QUERY
+@media screen and (max-width: 992px) {
+    .todo-input {
+        width: 100%;
+        border: 0;
+        font-size: 2.5em;
+        color: white;
+        background: transparent;
+        animation: fadeIn 1s;
+        cursor: pointer;
+
+        &::placeholder {
+            color: aliceblue;
+            opacity: 0.5;
+          }
+    
+    }
+
+    .clock span{
+        font-size: 7rem;
+    }
+
+    .greeting-container{
+        font-size: 0.6em;
+    }
+
+    .focus-output{
+        font-family: inherit;
+        padding: 0.5em;
+        font-size: 1.4em;
+    }
+
+    .quote{
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px){
+
+    header{
+        font-size: 0.6em;
+    }
+
+    body{
+        padding: 7%;
+        top: 0;
+        left: 0;
+    }
+    main{
+        font-size: 0.3em;
+        gap:15vh;
+    }
+
+    .greeting-container span{
+        font-size: $mobile-icon-size;
+    }
+
+    .todo-li{
+        font-size:2.5em;
+    }
+
+    .clock span {
+        font-size: 3.7rem;
+    }
+
+    .focus-input{
+        width: inherit;
+    }
+
+    .focus-output{
+        font-size: 2.4em;
+    }
+
+    .user-input-container {
+        padding: 0.2em;
+    }
+
+
+}

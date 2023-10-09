@@ -1,0 +1,25 @@
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @mixin fieldinputstyle {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    font-size: 1.4rem; 
+    background: transparent;
+    animation: fadeIn 2s;
+    text-align: center;
+
+    &::placeholder {
+        color: aliceblue;
+      }
+
+      &:placeholder-shown ~ .user-input {
+        font-size: 1.4rem;
+        cursor: text;
+        top: 20px;
+      }
+  }
+  
